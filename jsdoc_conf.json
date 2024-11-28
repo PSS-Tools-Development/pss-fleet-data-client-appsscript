@@ -3,8 +3,8 @@
         "allowUnknownTags": true
     },
     "source": {
-        "includePattern": ".+\\.gs$",
-        "excludePattern": "docs.gs"
+        "includePattern": ".+\\.[gj]s$",
+        "excludePattern": "docs.[gj]s"
     },
     "plugins": ["plugins/markdown"],
     "templates": {
