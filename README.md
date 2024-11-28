@@ -45,7 +45,7 @@ If you ran across a bug or have a feature request, please check if there's [alre
 If you need help using the library or want to contribute, you can join my support Discord at: [discord.gg/kKguSec](https://discord.gg/kKguSec)
 
 # 🔗 Links
-- Documentation (tbd)
+- [Documentation](https://pss-tools-development.github.io/pss-fleet-data-client-appsscript/)
 - [Official Support Discord server](https://discord.gg/kKguSec)
 - [PSS Fleet Data API](https://fleetdata.dolores2.xyz)
 - [Buy me a can of cat food](https://buymeacoffee.com/the_worst_pss)
