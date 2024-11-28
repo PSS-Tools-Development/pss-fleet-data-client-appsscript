@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Class: CollectionAlliancesResponse</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,83 +17,360 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
-
-    
-
-
-
-    
-
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
+    <h1 class="page-title">Class: CollectionAlliancesResponse</h1>
 
     
 
 
 
 
-    <section>
-        <article><h1>Pixel Starships Fleet Data API client</h1>
-<p><a href="https://discord.gg/kKguSec" target="_blank"><img src="https://discord.com/api/guilds/565819215731228672/embed.png" alt="Support Discord server invite"></a></p>
-<blockquote>
-<p>A stateless Google Apps Script library to access the <a href="https://github.com/Zukunftsmusik/pss-fleet-data-api">PSS Fleet Data API</a>. Currently supported API version is <strong>1.5.x</strong>.</p>
-</blockquote>
-<blockquote>
-<p>Current version: <strong>8</strong></p>
-</blockquote>
-<h1>✨ Features</h1>
-<ul>
-<li><strong>Easy access</strong> to the official <strong>PSS Fleet Data API</strong> server.</li>
-<li><strong>Fast setup</strong> to get you started quickly.</li>
-</ul>
-<h1>🚀 Demo</h1>
-<p>To retrieve the last month's tournament results (a specific Collection):</p>
-<pre class="prettyprint source lang-javascript"><code>// Retrieve the monthly results in reversed order and take only 1
-let apiResponse = PssFleetData.Client.getCollections(null, null, &quot;month&quot;, true, 0, 1);
+<section>
 
-// The resulting response object will have the http response code and if the request was successful, also the parsed response body
-if (apiResponse.metadatas != null) { // Check for null, the result set may just be empty
-  // Now retrieve the Collection's full data with the collectionId
-  let collection = PssFleetData.Client.getCollection(apiResponse.metadatas[0].collectionId).collection;
-  
-  if (collection) {
-    console.log(&quot;Last month's collection was collected at: &quot; + collection.timestamp);
-    console.log(&quot;Last month's collection took &quot; + collection.duration + &quot; seconds&quot;);
-    console.log(&quot;Last month's collection has &quot; + collection.alliances.length + &quot; alliances&quot;);
-    console.log(&quot;Last month's collection has &quot; + collection.users.length + &quot; users&quot;);
-  }
-}
-</code></pre>
-<p>The library converts localized <code>Date</code> objects to UTC or assumes UTC, if no timezone information is given. Any <code>Date</code> objects returned are in UTC.</p>
-<h1>⚙️ Installation</h1>
-<p>To install the library in your project, search for this script ID:</p>
-<pre class="prettyprint source lang-sh"><code>1THzQ0jC6YrA2SyWMrHf1QauQdKYI4eMK4H-LhP6s1a9i5UvRa7p3TiaQ
-</code></pre>
-<h1>🖊️ Contribute</h1>
-<p>If you ran across a bug or have a feature request, please check if there's <a href="https://github.com/PSS-Tools-Development/pss-fleet-data-client-appsscript/issues">already an issue</a> for that and if not, <a href="https://github.com/PSS-Tools-Development/pss-fleet-data-client-appsscript/issues/new">open a new one</a>.</p>
-<h1>🆘 Support</h1>
-<p>If you need help using the library or want to contribute, you can join my support Discord at: <a href="https://discord.gg/kKguSec">discord.gg/kKguSec</a></p>
-<h1>🔗 Links</h1>
-<ul>
-<li><a href="https://pss-tools-development.github.io/pss-fleet-data-client-appsscript/">Documentation</a></li>
-<li><a href="https://discord.gg/kKguSec">Official Support Discord server</a></li>
-<li><a href="https://fleetdata.dolores2.xyz">PSS Fleet Data API</a></li>
-<li><a href="https://buymeacoffee.com/the_worst_pss">Buy me a can of cat food</a></li>
-<li><a href="https://ko-fi.com/theworstpss">Or a coffee</a></li>
-</ul></article>
-    </section>
+<header>
+    
+        <h2><span class="attribs"><span class="type-signature"></span></span>
+            <span class="ancestors"><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_.html">Classes_Responses
+
+This module contains classes wrapping responses returned by the PSS Fleet Data API.</a>~</span>CollectionAlliancesResponse<span class="signature">(fetchedResponse)</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description"><p>Represents an API response from the <code>/collections/{collectionId}/alliances</code> endpoint.</p></div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+    <h2>Constructor</h2>
+    
+
+    
+    <h4 class="name" id="CollectionAlliancesResponse"><span class="type-signature"></span>new CollectionAlliancesResponse<span class="signature">(fetchedResponse)</span><span class="type-signature"></span></h4>
+    
+
+    
 
 
+
+<div class="description">
+    <p>constructor - Creates an instance of CollectionAlliancesResponse based on the provided <strong>HTTPResponse</strong>.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>fetchedResponse</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">HTTPResponse</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The original response from the PSS Fleet Data API.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Classes_Responses.js.html">Classes_Responses.js</a>, <a href="Classes_Responses.js.html#line119">line 119</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+        <h3 class="subsection-title">Extends</h3>
+
+        
+
+
+    <ul>
+        <li>module:Classes_Responses~ApiResponse_</li>
+    </ul>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="Classes_Responses
+
+This module contains classes wrapping responses returned by the PSS Fleet Data API.module:~CollectionAlliancesResponse#alliances"><span class="type-signature"></span>Classes_Responses
+
+This module contains classes wrapping responses returned by the PSS Fleet Data API.module:~CollectionAlliancesResponse#alliances<span class="type-signature"> :Array.&lt;PssAlliance></span></h4>
+
+
+
+
+<div class="description">
+    <p>alliances - An array of PssAlliance objects contained in the response, if the responseJson is not <strong>null</strong>. Else, an empty array.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array.&lt;PssAlliance></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Classes_Responses.js.html">Classes_Responses.js</a>, <a href="Classes_Responses.js.html#line140">line 140</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="Classes_Responses
+
+This module contains classes wrapping responses returned by the PSS Fleet Data API.module:~CollectionAlliancesResponse#metadata"><span class="type-signature"></span>Classes_Responses
+
+This module contains classes wrapping responses returned by the PSS Fleet Data API.module:~CollectionAlliancesResponse#metadata<span class="type-signature"> :CollectionMetadata</span></h4>
+
+
+
+
+<div class="description">
+    <p>collection - The CollectionMetadata object contained in the response, if the responseJson is not <strong>null</strong>. Else, <strong>null</strong>.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">CollectionMetadata</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Classes_Responses.js.html">Classes_Responses.js</a>, <a href="Classes_Responses.js.html#line133">line 133</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

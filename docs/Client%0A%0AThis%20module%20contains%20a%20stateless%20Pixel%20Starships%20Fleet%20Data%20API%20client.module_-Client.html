@@ -1,0 +1,2166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: Client</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Class: Client</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2><span class="attribs"><span class="type-signature"></span></span>
+            <span class="ancestors"><a href="Client%250A%250AThis%2520module%2520contains%2520a%2520stateless%2520Pixel%2520Starships%2520Fleet%2520Data%2520API%2520client.module_.html">Client
+
+This module contains a stateless Pixel Starships Fleet Data API client.</a>~</span>Client<span class="signature">()</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description"><p>A stateless Client for the Pixel Starships Fleet Data API.</p></div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+    <h2>Constructor</h2>
+    
+
+    
+    <h4 class="name" id="Client"><span class="type-signature"></span>new Client<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Client.js.html">Client.js</a>, <a href="Client.js.html#line10">line 10</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".getAllianceFromCollection"><span class="type-signature">(static) </span>getAllianceFromCollection<span class="signature">(collectionId, allianceId)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Retrieves the PssAlliance (fleet) with the given <strong>allianceId</strong> from the Collection with the given <strong>collectionId</strong>, including its members.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>collectionId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The <strong>CollectionId</strong> of the Collection to retrieve the PssAlliance (fleet) from.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>allianceId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The <strong>AllianceId</strong> of the PssAlliance (fleet) to retrieve.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Client.js.html">Client.js</a>, <a href="Client.js.html#line78">line 78</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>CollectionAllianceResponse - The parsed and converted response from the PSS Fleet Data API.</p>
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".getAllianceHistory"><span class="type-signature">(static) </span>getAllianceHistory<span class="signature">(allianceId, fromDate<span class="signature-attributes">opt</span>, toDate<span class="signature-attributes">opt</span>, interval<span class="signature-attributes">opt</span>, desc<span class="signature-attributes">opt</span>, skip<span class="signature-attributes">opt</span>, take<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Retrieves the history of an PssAlliance (fleet) from the given parameters.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>allianceId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The <strong>AllianceId</strong> of the PssAlliance to retrieve the history for.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fromDate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Date</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The earliest date for which data shall be returned. Must be Jan 6th, 2016 or later. Must be earlier than parameter <strong>toDate</strong>, if that's specified.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>toDate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Date</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The latest date for which data shall be returned. Must be Jan 6th, 2016 or later. Must be later than parameter <strong>fromDate</strong>, if that's specified.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>interval</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Interval</span>
+|
+
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Return the data from the specified time frame in hourly (value: <strong>hour</strong>), daily (value: <strong>day</strong>, last Collection of a day) or monthly (value: <strong>month</strong>, last Collection of a month, default) interval.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>desc</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Return the results in descending order by timestamp.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>skip</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Skip this number of results from the result set.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>take</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Limit the number of results returned.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Client.js.html">Client.js</a>, <a href="Client.js.html#line24">line 24</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>AllianceHistoryResponse - The parsed and converted response from the PSS Fleet Data API.</p>
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".getAlliancesFromCollection"><span class="type-signature">(static) </span>getAlliancesFromCollection<span class="signature">(collectionId)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Retrieves the PssAlliances (fleets) from the Collection with the given <strong>collectionId</strong>.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>collectionId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The <strong>CollectionId</strong> of the Collection to retrieve the PssAlliances (fleets) from.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Client.js.html">Client.js</a>, <a href="Client.js.html#line65">line 65</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>CollectionAlliancesResponse - The parsed and converted response from the PSS Fleet Data API.</p>
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".getCollection"><span class="type-signature">(static) </span>getCollection<span class="signature">(collectionId)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Retrieves the Collection with the given <strong>collectionId</strong>.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>collectionId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The <strong>CollectionId</strong> of the Collection to retrieve.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Client.js.html">Client.js</a>, <a href="Client.js.html#line53">line 53</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>CollectionResponse - The parsed and converted response from the PSS Fleet Data API.</p>
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".getCollections"><span class="type-signature">(static) </span>getCollections<span class="signature">(fromDate<span class="signature-attributes">opt</span>, toDate<span class="signature-attributes">opt</span>, interval<span class="signature-attributes">opt</span>, desc<span class="signature-attributes">opt</span>, skip<span class="signature-attributes">opt</span>, take<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Retrieves the metadatas of Collections meeting the given parameters.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>fromDate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Date</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The earliest date for which data shall be returned. Must be Jan 6th, 2016 or later. Must be earlier than parameter <strong>toDate</strong>, if that's specified.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>toDate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Date</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The latest date for which data shall be returned. Must be Jan 6th, 2016 or later. Must be later than parameter <strong>fromDate</strong>, if that's specified.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>interval</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Interval</span>
+|
+
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Return the data from the specified time frame in hourly (value: <strong>hour</strong>), daily (value: <strong>day</strong>, last Collection of a day) or monthly (value: <strong>month</strong>, last Collection of a month, default) interval.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>desc</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Return the results in descending order by timestamp.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>skip</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Skip this number of results from the result set.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>take</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Limit the number of results returned.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Client.js.html">Client.js</a>, <a href="Client.js.html#line41">line 41</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>CollectionMetadatasResponse - The parsed and converted response from the PSS Fleet Data API.</p>
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".getTop100UsersFromCollection"><span class="type-signature">(static) </span>getTop100UsersFromCollection<span class="signature">(collectionId)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Retrieves the PssUsers (players) from the Collection with the given <strong>collectionId</strong>.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>collectionId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The <strong>CollectionId</strong> of the Collection to retrieve the PssUsers (players) from.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Client.js.html">Client.js</a>, <a href="Client.js.html#line90">line 90</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>CollectionUsersResponse - The parsed and converted response from the PSS Fleet Data API.</p>
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".getUserFromCollection"><span class="type-signature">(static) </span>getUserFromCollection<span class="signature">(collectionId, userId)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Retrieves the PssUser (player) with the given <strong>userId</strong> from the Collection with the given <strong>collectionId</strong>, including its PssAlliance (fleet), if applicable.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>collectionId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The <strong>CollectionId</strong> of the Collection to retrieve the PssUser (player) from.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>userId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The <strong>Id</strong> of the PssUser (player) to retrieve.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Client.js.html">Client.js</a>, <a href="Client.js.html#line103">line 103</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>CollectionUserResponse - The parsed and converted response from the PSS Fleet Data API.</p>
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".getUserHistory"><span class="type-signature">(static) </span>getUserHistory<span class="signature">(userId, fromDate<span class="signature-attributes">opt</span>, toDate<span class="signature-attributes">opt</span>, interval<span class="signature-attributes">opt</span>, desc<span class="signature-attributes">opt</span>, skip<span class="signature-attributes">opt</span>, take<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Retrieves the history of a PssUser (player) from the given parameters.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>userId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The <strong>Id</strong> of the PssUser to retrieve the history for.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fromDate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Date</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The earliest date for which data shall be returned. Must be Jan 6th, 2016 or later. Must be earlier than parameter <strong>toDate</strong>, if that's specified.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>toDate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Date</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The latest date for which data shall be returned. Must be Jan 6th, 2016 or later. Must be later than parameter <strong>fromDate</strong>, if that's specified.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>interval</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Interval</span>
+|
+
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Return the data from the specified time frame in hourly (value: <strong>hour</strong>), daily (value: <strong>day</strong>, last Collection of a day) or monthly (value: <strong>month</strong>, last Collection of a month, default) interval.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>desc</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Return the results in descending order by timestamp.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>skip</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Skip this number of results from the result set.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>take</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Limit the number of results returned.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Client.js.html">Client.js</a>, <a href="Client.js.html#line133">line 133</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>UserHistoryResponse - The parsed and converted response from the PSS Fleet Data API.</p>
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".getUsersFromCollection"><span class="type-signature">(static) </span>getUsersFromCollection<span class="signature">(collectionId)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Retrieves the PssUsers (players) from the Collection with the given <strong>collectionId</strong>.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>collectionId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The <strong>CollectionId</strong> of the Collection to retrieve the PssUsers (players) from.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Client.js.html">Client.js</a>, <a href="Client.js.html#line115">line 115</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>CollectionUsersResponse - The parsed and converted response from the PSS Fleet Data API.</p>
+</div>
+
+
+
+    
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="Classes_API%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520objects%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_.html">Classes_API
+
+This module contains classes wrapping objects returned by the PSS Fleet Data API.</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_.html">Classes_Responses
+
+This module contains classes wrapping responses returned by the PSS Fleet Data API.</a></li><li><a href="Client%250A%250AThis%2520module%2520contains%2520a%2520stateless%2520Pixel%2520Starships%2520Fleet%2520Data%2520API%2520client.module_.html">Client
+
+This module contains a stateless Pixel Starships Fleet Data API client.</a></li><li><a href="Constants%250A%250AThis%2520module%2520contains%2520constants%2520used%2520in%2520other%2520modules.module_.html">Constants
+
+This module contains constants used in other modules.</a></li><li><a href="Enums%250A%250AThis%2520module%2520contains%2520_Enums_.module_.html">Enums
+
+This module contains "Enums".</a></li><li><a href="Helper_%250A%250AThis%2520module%2520contains%2520utility%2520functions.module_.html">Helper_
+
+This module contains utility functions.</a></li><li><a href="Test_%250A%250AContains%2520helper%2520functions%2520for%2520testing.module_.html">Test_
+
+Contains helper functions for testing.</a></li><li><a href="Test_integration_%250A%250AContains%2520integration%2520tests.module_.html">Test_integration_
+
+Contains integration tests.</a></li><li><a href="Test_unit_%250A%250AContains%2520unit%2520tests.module_.html">Test_unit_
+
+Contains unit tests.</a></li></ul><h3>Classes</h3><ul><li><a href="Classes_API%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520objects%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-Collection.html">Collection</a></li><li><a href="Classes_API%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520objects%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-CollectionMetadata.html">CollectionMetadata</a></li><li><a href="Classes_API%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520objects%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-PssAlliance.html">PssAlliance</a></li><li><a href="Classes_API%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520objects%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-PssAllianceHistory.html">PssAllianceHistory</a></li><li><a href="Classes_API%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520objects%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-PssUser.html">PssUser</a></li><li><a href="Classes_API%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520objects%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-PssUserHistory.html">PssUserHistory</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-AllianceHistoryResponse.html">AllianceHistoryResponse</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-ApiResponse_.html">ApiResponse_</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-CollectionAllianceResponse.html">CollectionAllianceResponse</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-CollectionAlliancesResponse.html">CollectionAlliancesResponse</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-CollectionMetadatasResponse.html">CollectionMetadatasResponse</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-CollectionResponse.html">CollectionResponse</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-CollectionUserResponse.html">CollectionUserResponse</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-CollectionUsersResponse.html">CollectionUsersResponse</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-UserHistoryResponse.html">UserHistoryResponse</a></li><li><a href="Client%250A%250AThis%2520module%2520contains%2520a%2520stateless%2520Pixel%2520Starships%2520Fleet%2520Data%2520API%2520client.module_-Client.html">Client</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Thu Nov 28 2024 23:32:27 GMT+0100 (Central European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

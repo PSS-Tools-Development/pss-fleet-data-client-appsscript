@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Test_integration_.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Test_integration_.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @module Test_integration_
+ * 
+ * Contains integration tests.
+ */
+
+/**
+ * Runs all integration tests and logs the results to the console.
+ */
+function runAllIntegrationTests() {
+  tests = [
+    test_getAllianceHistory_returnsNonEmptyArrayOnValidParameters_,
+    test_getAllianceFromCollection_returnsFleetWithUsersOnValidParameters_,
+    test_getAlliancesFromCollection_returnsCollectionWithoutUsersOnValidParameters_,
+    test_getCollection_returnsCollectionOnValidParameters_,
+    test_getCollections_returnsNonEmptyArrayOnValidParameters_,
+    test_getTop100UsersFromCollection_returnsCollectionWithoutAlliancesAndWith100UsersOnValidParameters_,
+    test_getUserHistory_returnsNonEmptyArrayOnValidParameters_,
+    test_getUserFromCollection_returnsUserWithFleetOnValidParameters_,
+    test_getUsersFromCollection_returnsCollectionWithoutAlliancesOnValidParameters_,
+  ];
+
+  runTests_(tests);
+}
+
+function test_getAllianceHistory_returnsNonEmptyArrayOnValidParameters_() {
+  const allianceId = 21;  // Wolfpack
+  const fromDate = PSS_START_DATE;
+  const toDate = newDate_(2020, 0, 1);
+  const expectedType = AllianceHistoryResponse;
+
+  let allianceHistoryResponse = Client.getAllianceHistory(allianceId, fromDate, toDate);
+
+  assert_(allianceHistoryResponse instanceof expectedType, "Response object is of type '" + expectedType.name + "', actual type: " + allianceHistoryResponse.constructor.name);
+  assert_(allianceHistoryResponse.statusCode >= 200 &amp;&amp; allianceHistoryResponse.statusCode &lt; 300, "Statuscode is 2xx, actual output: " + allianceHistoryResponse.statusCode);
+  assert_(Array.isArray(allianceHistoryResponse.allianceHistories), "Return value is of type array, actual type: " + typeof(allianceHistoryResponse.allianceHistories));
+  assert_(allianceHistoryResponse.allianceHistories.length > 0, "Return value is non-empty array, actual length: " + allianceHistoryResponse.allianceHistories.length);
+}
+
+function test_getAllianceFromCollection_returnsFleetWithUsersOnValidParameters_() {
+  const allianceId = 21;  // Wolfpack
+  const collectionId = 23;
+  const expectedType = CollectionAllianceResponse;
+
+  let allianceHistoryResponse = Client.getAllianceFromCollection(collectionId, allianceId);
+
+  assert_(allianceHistoryResponse instanceof expectedType, "Response object is of type '" + expectedType.name + "', actual type: " + allianceHistoryResponse.constructor.name);
+  assert_(allianceHistoryResponse.statusCode >= 200 &amp;&amp; allianceHistoryResponse.statusCode &lt; 300, "Statuscode is 2xx, actual output: " + allianceHistoryResponse.statusCode);
+  assert_(allianceHistoryResponse.allianceHistory.collection, "Response contains Metadata, actual value: " + allianceHistoryResponse.allianceHistory.collection);
+  assert_(allianceHistoryResponse.allianceHistory.alliance, "Response contains Alliance, actual value: " + allianceHistoryResponse.allianceHistory.alliance);
+  assert_(allianceHistoryResponse.allianceHistory.users.length > 0, "Response contains Users, actually contains: " + allianceHistoryResponse.allianceHistory.users.length);
+}
+
+function test_getAlliancesFromCollection_returnsCollectionWithoutUsersOnValidParameters_() {
+  const collectionId = 23;
+  const expectedType = CollectionAlliancesResponse;
+
+  let collectionResponse = Client.getAlliancesFromCollection(collectionId);
+
+  assert_(collectionResponse instanceof expectedType, "Response object is of type '" + expectedType.name + "', actual type: " + collectionResponse.constructor.name);
+  assert_(collectionResponse.statusCode >= 200 &amp;&amp; collectionResponse.statusCode &lt; 300, "Statuscode is 2xx, actual output: " + collectionResponse.statusCode);
+  assert_(collectionResponse.metadata, "Response contains Metadata, actual value: " + collectionResponse.metadata);
+  assert_(collectionResponse.alliances.length > 0, "Response contains non-empty array of Alliances, actual length: " + collectionResponse.alliances.length);
+}
+
+function test_getCollection_returnsCollectionOnValidParameters_() {
+  const collectionId = 23;
+  const expectedType = CollectionResponse;
+
+  let collectionResponse = Client.getCollection(collectionId);
+
+  assert_(collectionResponse instanceof expectedType, "Response object is of type '" + expectedType.name + "', actual type: " + collectionResponse.constructor.name);
+  assert_(collectionResponse.statusCode >= 200 &amp;&amp; collectionResponse.statusCode &lt; 300, "Statuscode is 2xx, actual output: " + collectionResponse.statusCode);
+  assert_(collectionResponse.collection, "Response contains Collection, actual value: " + collectionResponse.collection);
+}
+
+function test_getCollections_returnsNonEmptyArrayOnValidParameters_() {
+  const fromDate = PSS_START_DATE;
+  const toDate = newDate_(2020, 0, 1);
+  const expectedType = CollectionMetadatasResponse;
+
+  let collectionMetadatasResponse = Client.getCollections(fromDate, toDate);
+
+  assert_(collectionMetadatasResponse instanceof expectedType, "Response object is of type '" + expectedType.name + "', actual type: " + collectionMetadatasResponse.constructor.name);
+  assert_(collectionMetadatasResponse.statusCode >= 200 &amp;&amp; collectionMetadatasResponse.statusCode &lt; 300, "Statuscode is 2xx, actual output: " + collectionMetadatasResponse.statusCode);
+  assert_(Array.isArray(collectionMetadatasResponse.metadatas), "Return value is of type array, actual type: " + typeof(collectionMetadatasResponse.metadatas));
+  assert_(collectionMetadatasResponse.metadatas.length > 0, "Return value is non-empty array, actual length: " + collectionMetadatasResponse.metadatas.length);
+}
+
+function test_getTop100UsersFromCollection_returnsCollectionWithoutAlliancesAndWith100UsersOnValidParameters_() {
+  const collectionId = 23;
+  const expectedType = CollectionUsersResponse;
+
+  let collectionResponse = Client.getTop100UsersFromCollection(collectionId);
+
+  assert_(collectionResponse instanceof expectedType, "Response object is of type '" + expectedType.name + "', actual type: " + collectionResponse.constructor.name);
+  assert_(collectionResponse.statusCode >= 200 &amp;&amp; collectionResponse.statusCode &lt; 300, "Statuscode is 2xx, actual output: " + collectionResponse.statusCode);
+  assert_(collectionResponse.metadata, "Response contains Metadata, actual value: " + collectionResponse.metadata);
+  assert_strictly_equal_(collectionResponse.users.length, 100, "Response contains 100 users, actually contains: " + collectionResponse.users.length);
+}
+
+function test_getUserHistory_returnsNonEmptyArrayOnValidParameters_() {
+  const userId = 4510693;  // The worst.
+  const fromDate = PSS_START_DATE;
+  const toDate = newDate_(2020, 0, 1);
+  const expectedType = UserHistoryResponse;
+
+  let userHistoryResponse = Client.getUserHistory(userId, fromDate, toDate);
+
+  assert_(userHistoryResponse instanceof expectedType, "Response object is of type '" + expectedType.name + "', actual type: " + userHistoryResponse.constructor.name);
+  assert_(userHistoryResponse.statusCode >= 200 &amp;&amp; userHistoryResponse.statusCode &lt; 300, "Statuscode is 2xx, actual output: " + userHistoryResponse.statusCode);
+  assert_(Array.isArray(userHistoryResponse.userHistories), "Return value is of type array, actual type: " + typeof(userHistoryResponse.userHistories));
+  assert_(userHistoryResponse.userHistories.length > 0, "Return value is non-empty array, actual length: " + userHistoryResponse.userHistories.length);
+}
+
+function test_getUserFromCollection_returnsUserWithFleetOnValidParameters_() {
+  const userId = 4510693;  // The worst.
+  const collectionId = 23;
+  const expectedType = CollectionUserResponse;
+
+  let userHistoryResponse = Client.getUserFromCollection(collectionId, userId);
+
+  assert_(userHistoryResponse instanceof expectedType, "Response object is of type '" + expectedType.name + "', actual type: " + userHistoryResponse.constructor.name);
+  assert_(userHistoryResponse.statusCode >= 200 &amp;&amp; userHistoryResponse.statusCode &lt; 300, "Statuscode is 2xx, actual output: " + userHistoryResponse.statusCode);
+  assert_(userHistoryResponse.userHistory.collection, "Response contains Collection, actual value: " + userHistoryResponse.userHistory.collection);
+  assert_(userHistoryResponse.userHistory.alliance, "Response contains Alliance, actual value: " + userHistoryResponse.userHistory.alliance);
+  assert_(userHistoryResponse.userHistory.user, "Response contains User, actually contains: " + userHistoryResponse.userHistory.user);
+}
+
+function test_getUsersFromCollection_returnsCollectionWithoutAlliancesOnValidParameters_() {
+  const collectionId = 23;
+  const expectedType = CollectionUsersResponse;
+
+  let collectionResponse = Client.getUsersFromCollection(collectionId);
+
+  assert_(collectionResponse instanceof expectedType, "Response object is of type '" + expectedType.name + "', actual type: " + collectionResponse.constructor.name);
+  assert_(collectionResponse.statusCode >= 200 &amp;&amp; collectionResponse.statusCode &lt; 300, "Statuscode is 2xx, actual output: " + collectionResponse.statusCode);
+  assert_(collectionResponse.metadata, "Response contains Metadata, actual value: " + collectionResponse.metadata);
+  assert_(collectionResponse.users.length > 0, "Response contains non-empty array of Users, actual length: " + collectionResponse.users.length);
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="Classes_API%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520objects%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_.html">Classes_API
+
+This module contains classes wrapping objects returned by the PSS Fleet Data API.</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_.html">Classes_Responses
+
+This module contains classes wrapping responses returned by the PSS Fleet Data API.</a></li><li><a href="Client%250A%250AThis%2520module%2520contains%2520a%2520stateless%2520Pixel%2520Starships%2520Fleet%2520Data%2520API%2520client.module_.html">Client
+
+This module contains a stateless Pixel Starships Fleet Data API client.</a></li><li><a href="Constants%250A%250AThis%2520module%2520contains%2520constants%2520used%2520in%2520other%2520modules.module_.html">Constants
+
+This module contains constants used in other modules.</a></li><li><a href="Enums%250A%250AThis%2520module%2520contains%2520_Enums_.module_.html">Enums
+
+This module contains "Enums".</a></li><li><a href="Helper_%250A%250AThis%2520module%2520contains%2520utility%2520functions.module_.html">Helper_
+
+This module contains utility functions.</a></li><li><a href="Test_%250A%250AContains%2520helper%2520functions%2520for%2520testing.module_.html">Test_
+
+Contains helper functions for testing.</a></li><li><a href="Test_integration_%250A%250AContains%2520integration%2520tests.module_.html">Test_integration_
+
+Contains integration tests.</a></li><li><a href="Test_unit_%250A%250AContains%2520unit%2520tests.module_.html">Test_unit_
+
+Contains unit tests.</a></li></ul><h3>Classes</h3><ul><li><a href="Classes_API%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520objects%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-Collection.html">Collection</a></li><li><a href="Classes_API%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520objects%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-CollectionMetadata.html">CollectionMetadata</a></li><li><a href="Classes_API%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520objects%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-PssAlliance.html">PssAlliance</a></li><li><a href="Classes_API%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520objects%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-PssAllianceHistory.html">PssAllianceHistory</a></li><li><a href="Classes_API%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520objects%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-PssUser.html">PssUser</a></li><li><a href="Classes_API%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520objects%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-PssUserHistory.html">PssUserHistory</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-AllianceHistoryResponse.html">AllianceHistoryResponse</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-ApiResponse_.html">ApiResponse_</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-CollectionAllianceResponse.html">CollectionAllianceResponse</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-CollectionAlliancesResponse.html">CollectionAlliancesResponse</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-CollectionMetadatasResponse.html">CollectionMetadatasResponse</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-CollectionResponse.html">CollectionResponse</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-CollectionUserResponse.html">CollectionUserResponse</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-CollectionUsersResponse.html">CollectionUsersResponse</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-UserHistoryResponse.html">UserHistoryResponse</a></li><li><a href="Client%250A%250AThis%2520module%2520contains%2520a%2520stateless%2520Pixel%2520Starships%2520Fleet%2520Data%2520API%2520client.module_-Client.html">Client</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Thu Nov 28 2024 23:32:27 GMT+0100 (Central European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Classes_Responses.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Classes_Responses.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @module Classes_Responses
+ * 
+ * This module contains classes wrapping responses returned by the PSS Fleet Data API.
+ */
+
+/**
+ * Base class for responses returned by the PSS Fleet Data API.
+ */
+class ApiResponse_ {
+  /**
+   * constructor - Creates an instance of {@link module:Classes_Responses~ApiResponse_|ApiResponse_} based on the provided **HTTPResponse**.
+   * 
+   * @param {HTTPResponse} fetchedResponse - The original response from the PSS Fleet Data API.
+   */
+  constructor(fetchedResponse) {
+    /**
+     * statusCode - The HTTP status code of the response.
+     * @type {integer}
+     * @public
+     */
+    this.statusCode = fetchedResponse.getResponseCode();
+
+    /**
+     * responseJson - The object or array of objects parsed from the JSON in the response, if the {@link module:Classes_Responses~ApiResponse_#statusCode|statusCode} is in the **2xx** range. Else, **null**.
+     * @type {(object|object[])}
+     * @public
+     */
+    this.responseJson = null;
+    if (this.statusCode >= 200 &amp;&amp; this.statusCode &lt; 300) {
+      this.responseJson = JSON.parse(fetchedResponse.getContentText());
+    }
+  }
+}
+
+/**
+ * Represents an API response from the `/allianceHistory/{allianceId}` endpoint.
+ * 
+ * @extends module:Classes_Responses~ApiResponse_
+ */
+class AllianceHistoryResponse extends ApiResponse_ {
+  /**
+   * constructor - Creates an instance of {@link module:Classes_Responses~AllianceHistoryResponse|AllianceHistoryResponse} based on the provided **HTTPResponse**.
+   * 
+   * @param {HTTPResponse} fetchedResponse - The original response from the PSS Fleet Data API.
+   */
+  constructor(fetchedResponse) {
+    super(fetchedResponse);
+
+    /**
+     * allianceHistories - An array of {@link module:Classes_API~PssAllianceHistory|PssAllianceHistory} objects contained in the response, if the {@link module:Classes_Responses~ApiResponse_#responseJson|responseJson} is not **null**. Else, an empty array.
+     * @type {PssAllianceHistory[]}
+     * @public
+     */
+    this.allianceHistories = null;
+    if (this.responseJson !== null) {
+      this.allianceHistories = this.responseJson.map(json => PssAllianceHistory.fromJson(json));
+    }
+  }
+}
+
+/**
+ * Represents an API response from the `/collections` endpoint.
+ * 
+ * @extends module:Classes_Responses~ApiResponse_
+ */
+class CollectionMetadatasResponse extends ApiResponse_ {
+  /**
+   * constructor - Creates an instance of {@link module:Classes_Responses~CollectionMetadatasResponse|CollectionMetadatasResponse} based on the provided **HTTPResponse**.
+   * 
+   * @param {HTTPResponse} fetchedResponse - The original response from the PSS Fleet Data API.
+   */
+  constructor(fetchedResponse) {
+    super(fetchedResponse);
+
+    /**
+     * metadatas - An array of {@link module:Classes_API~CollectionMetadata|CollectionMetadata} objects contained in the response, if the {@link module:Classes_Responses~ApiResponse_#responseJson|responseJson} is not **null**. Else, **null**.
+     * @type {CollectionMetadata[]}
+     * @public
+     */
+    this.metadatas = null;
+    if (this.responseJson !== null) {
+      this.metadatas = this.responseJson.map(rawMetadata => new CollectionMetadata(rawMetadata));
+    }
+  }
+}
+
+/**
+ * Represents an API response from the `/collections/{collectionId}` endpoint.
+ * 
+ * @extends module:Classes_Responses~ApiResponse_
+ */
+class CollectionResponse extends ApiResponse_ {
+  /**
+   * constructor - Creates an instance of {@link module:Classes_Responses~CollectionResponse|CollectionResponse} based on the provided **HTTPResponse**.
+   * 
+   * @param {HTTPResponse} fetchedResponse - The original response from the PSS Fleet Data API.
+   */
+  constructor(fetchedResponse) {
+    super(fetchedResponse);
+
+    /**
+     * collection - The {@link module:Classes_API~Collection|Collection} object contained in the response, if the {@link module:Classes_Responses~ApiResponse_#responseJson|responseJson} is not **null**. Else, **null**.
+     * @type {Collection}
+     * @public
+     */
+    this.collection = null;
+    if (this.responseJson !== null) {
+      this.collection = Collection.fromJson(this.responseJson);
+    }
+  }
+}
+
+/**
+ * Represents an API response from the `/collections/{collectionId}/alliances` endpoint.
+ * 
+ * @extends module:Classes_Responses~ApiResponse_
+ */
+class CollectionAlliancesResponse extends ApiResponse_ {
+  /**
+   * constructor - Creates an instance of {@link module:Classes_Responses~CollectionAlliancesResponse|CollectionAlliancesResponse} based on the provided **HTTPResponse**.
+   * 
+   * @param {HTTPResponse} fetchedResponse - The original response from the PSS Fleet Data API.
+   */
+  constructor(fetchedResponse) {
+    super(fetchedResponse);
+
+    /**
+     * collection - The {@link module:Classes_API~CollectionMetadata|CollectionMetadata} object contained in the response, if the {@link module:Classes_Responses~ApiResponse_#responseJson|responseJson} is not **null**. Else, **null**.
+     * @type {CollectionMetadata}
+     * @public
+     */
+    this.metadata = null;
+    
+    /**
+     * alliances - An array of {@link module:Classes_API~PssAlliance|PssAlliance} objects contained in the response, if the {@link module:Classes_Responses~ApiResponse_#responseJson|responseJson} is not **null**. Else, an empty array.
+     * @type {PssAlliance[]}
+     * @public
+     */
+    this.alliances = null;
+    if (this.responseJson !== null) {
+      this.metadata = new CollectionMetadata(this.responseJson["meta"]);
+      this.alliances = (this.responseJson["fleets"] || []).map(rawAlliance => new PssAlliance(rawAlliance));
+    }
+  }
+}
+
+/**
+ * Represents an API response from the `/collections/{collectionId}/alliances/{allianceId}` endpoint.
+ * 
+ * @extends module:Classes_Responses~ApiResponse_
+ */
+class CollectionAllianceResponse extends ApiResponse_ {
+  /**
+   * constructor - Creates an instance of {@link module:Classes_Responses~CollectionAllianceResponse|CollectionAllianceResponse} based on the provided **HTTPResponse**.
+   * 
+   * @param {HTTPResponse} fetchedResponse - The original response from the PSS Fleet Data API.
+   */
+  constructor(fetchedResponse) {
+    super(fetchedResponse);
+
+    /**
+     * allianceHistory - The {@link module:Classes_API~PssAllianceHistory|PssAllianceHistory} object contained in the response, if the {@link module:Classes_Responses~ApiResponse_#responseJson|responseJson} is not **null**. Else, **null**.
+     * @type {PssAllianceHistory}
+     * @public
+     */
+    this.allianceHistory = null;
+    if (this.responseJson !== null) {
+      this.allianceHistory = PssAllianceHistory.fromJson(this.responseJson);
+    }
+  }
+}
+
+/**
+ * Represents an API response from the `/collections/{collectionId}/users` endpoint.
+ * 
+ * @extends module:Classes_Responses~ApiResponse_
+ */
+class CollectionUsersResponse extends ApiResponse_ {
+  /**
+   * constructor - Creates an instance of {@link module:Classes_Responses~CollectionUsersResponse|CollectionUsersResponse} based on the provided **HTTPResponse**.
+   * 
+   * @param {HTTPResponse} fetchedResponse - The original response from the PSS Fleet Data API.
+   */
+  constructor(fetchedResponse) {
+    super(fetchedResponse);
+
+    /**
+     * collection - The {@link module:Classes_API~CollectionMetadata|CollectionMetadata} object contained in the response, if the {@link module:Classes_Responses~ApiResponse_#responseJson|responseJson} is not **null**. Else, **null**.
+     * @type {CollectionMetadata}
+     * @public
+     */
+    this.metadata = null;
+
+    /**
+     * users - An array of {@link module:Classes_API~PssUser|PssUser} objects contained in the response, if the {@link module:Classes_Responses~ApiResponse_#responseJson|responseJson} is not **null**. Else, an empty array.
+     * @type {PssUser[]}
+     * @public
+     */
+    this.users = null;
+    if (this.responseJson !== null) {
+      this.metadata = new CollectionMetadata(this.responseJson["meta"]);
+      this.users = this.responseJson["users"].map(rawUser => new PssUser(rawUser));
+    }
+  }
+}
+
+/**
+ * Represents an API response from the `/collections/{collectionId}/users/{userId}` endpoint.
+ * 
+ * @extends module:Classes_Responses~ApiResponse_
+ */
+class CollectionUserResponse extends ApiResponse_ {
+  /**
+   * constructor - Creates an instance of {@link module:Classes_Responses~CollectionUserResponse|CollectionUserResponse} based on the provided **HTTPResponse**.
+   * 
+   * @param {HTTPResponse} fetchedResponse - The original response from the PSS Fleet Data API.
+   */
+  constructor(fetchedResponse) {
+    super(fetchedResponse);
+
+    /**
+     * userHistory - The {@link module:Classes_API~PssUserHistory|PssUserHistory} object contained in the response, if the {@link module:Classes_Responses~ApiResponse_#responseJson|responseJson} is not **null**. Else, **null**.
+     * @type {PssUserHistory}
+     * @public
+     */
+    this.userHistory = null;
+    if (this.responseJson !== null) {
+      this.userHistory = PssUserHistory.fromJson(this.responseJson);
+    }
+  }
+}
+
+/**
+ * Represents an API response from the `/userHistory/{userId}` endpoint.
+ * 
+ * @extends module:Classes_Responses~ApiResponse_
+ */
+class UserHistoryResponse extends ApiResponse_ {
+  /**
+   * constructor - Creates an instance of {@link module:Classes_Responses~UserHistoryResponse|UserHistoryResponse} based on the provided **HTTPResponse**.
+   * 
+   * @param {HTTPResponse} fetchedResponse - The original response from the PSS Fleet Data API.
+   */
+  constructor(fetchedResponse) {
+    super(fetchedResponse);
+
+    /**
+     * userHistories - An array of {@link module:Classes_API~PssUserHistory|PssUserHistory} objects contained in the response, if the {@link module:Classes_Responses~ApiResponse_#responseJson|responseJson} is not **null**. Else, an empty array.
+     * @type {PssUserHistory[]}
+     * @public
+     */
+    this.userHistories = null;
+    if (this.responseJson !== null) {
+      this.userHistories = this.responseJson.map(json => PssUserHistory.fromJson(json));
+    }
+  }
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="Classes_API%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520objects%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_.html">Classes_API
+
+This module contains classes wrapping objects returned by the PSS Fleet Data API.</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_.html">Classes_Responses
+
+This module contains classes wrapping responses returned by the PSS Fleet Data API.</a></li><li><a href="Client%250A%250AThis%2520module%2520contains%2520a%2520stateless%2520Pixel%2520Starships%2520Fleet%2520Data%2520API%2520client.module_.html">Client
+
+This module contains a stateless Pixel Starships Fleet Data API client.</a></li><li><a href="Constants%250A%250AThis%2520module%2520contains%2520constants%2520used%2520in%2520other%2520modules.module_.html">Constants
+
+This module contains constants used in other modules.</a></li><li><a href="Enums%250A%250AThis%2520module%2520contains%2520_Enums_.module_.html">Enums
+
+This module contains "Enums".</a></li><li><a href="Helper_%250A%250AThis%2520module%2520contains%2520utility%2520functions.module_.html">Helper_
+
+This module contains utility functions.</a></li><li><a href="Test_%250A%250AContains%2520helper%2520functions%2520for%2520testing.module_.html">Test_
+
+Contains helper functions for testing.</a></li><li><a href="Test_integration_%250A%250AContains%2520integration%2520tests.module_.html">Test_integration_
+
+Contains integration tests.</a></li><li><a href="Test_unit_%250A%250AContains%2520unit%2520tests.module_.html">Test_unit_
+
+Contains unit tests.</a></li></ul><h3>Classes</h3><ul><li><a href="Classes_API%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520objects%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-Collection.html">Collection</a></li><li><a href="Classes_API%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520objects%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-CollectionMetadata.html">CollectionMetadata</a></li><li><a href="Classes_API%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520objects%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-PssAlliance.html">PssAlliance</a></li><li><a href="Classes_API%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520objects%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-PssAllianceHistory.html">PssAllianceHistory</a></li><li><a href="Classes_API%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520objects%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-PssUser.html">PssUser</a></li><li><a href="Classes_API%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520objects%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-PssUserHistory.html">PssUserHistory</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-AllianceHistoryResponse.html">AllianceHistoryResponse</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-ApiResponse_.html">ApiResponse_</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-CollectionAllianceResponse.html">CollectionAllianceResponse</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-CollectionAlliancesResponse.html">CollectionAlliancesResponse</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-CollectionMetadatasResponse.html">CollectionMetadatasResponse</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-CollectionResponse.html">CollectionResponse</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-CollectionUserResponse.html">CollectionUserResponse</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-CollectionUsersResponse.html">CollectionUsersResponse</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-UserHistoryResponse.html">UserHistoryResponse</a></li><li><a href="Client%250A%250AThis%2520module%2520contains%2520a%2520stateless%2520Pixel%2520Starships%2520Fleet%2520Data%2520API%2520client.module_-Client.html">Client</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Thu Nov 28 2024 23:32:27 GMT+0100 (Central European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

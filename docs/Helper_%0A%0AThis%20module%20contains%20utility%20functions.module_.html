@@ -1,0 +1,2698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Module: Helper_
+
+This module contains utility functions.</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Module: Helper_
+
+This module contains utility functions.</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+        
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Helper_.js.html">Helper_.js</a>, <a href="Helper_.js.html#line1">line 1</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~assembleUrl_"><span class="type-signature">(inner) </span>assembleUrl_<span class="signature">(url, queryParameters)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Takes a <strong>URL</strong> and a dictionary of query parameters and turns them into a full URL.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>url</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The base URL to append the query parameters to.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>queryParameters</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>An object having the parameter names as keys and their values as values. The values will get converted to strings and url-encoded.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Helper_.js.html">Helper_.js</a>, <a href="Helper_.js.html#line49">line 49</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <ul>
+<li>A full URL including query parameters.</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~constructParamsObject_"><span class="type-signature">(inner) </span>constructParamsObject_<span class="signature">(fromDate<span class="signature-attributes">opt</span>, toDate<span class="signature-attributes">opt</span>, interval<span class="signature-attributes">opt</span>, desc<span class="signature-attributes">opt</span>, skip<span class="signature-attributes">opt</span>, take<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {object}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Takes some query parameters and adds them to a dictionary, if they're defined.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>fromDate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Date</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The earliest date for which data shall be returned.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>toDate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Date</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The latest date for which data shall be returned.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>interval</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Interval</span>
+|
+
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Return the data from the specified time frame in hourly (value: &quot;hour&quot;), daily (value: &quot;day&quot;, last Collection of a day) or monthly (value: &quot;month&quot;, last Collection of a month) interval.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>desc</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Return the results in descending order by timestamp.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>skip</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Skip this number of results from the result set.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>take</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Limit the number of results returned.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Helper_.js.html">Helper_.js</a>, <a href="Helper_.js.html#line75">line 75</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <ul>
+<li>An object containing the keys and values for each of the parameters provided. The object may have no keys, if no parameter was provided.</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~convertDateToParameter_"><span class="type-signature">(inner) </span>convertDateToParameter_<span class="signature">(date)</span><span class="type-signature"> &rarr; {string|null}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Takes a <strong>Date</strong> and converts it to a string to be used as a parameter in a call to the PSS Fleet Data API.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>date</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Date</span>
+|
+
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The date to get converted.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Helper_.js.html">Helper_.js</a>, <a href="Helper_.js.html#line106">line 106</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <ul>
+<li>A <strong>Date</strong> converted to an ISO-8601 string, if the input value is of type <strong>Date</strong>. The input, if the input is of type <strong>string</strong>. Else, <strong>null</strong>.</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+|
+
+<span class="param-type">null</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~convertIntervalToParameter_"><span class="type-signature">(inner) </span>convertIntervalToParameter_<span class="signature">(interval)</span><span class="type-signature"> &rarr; {string|null}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Takes an Interval and converts it to a string to be used as a parameter in a call to the PSS Fleet Data API.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>interval</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Interval</span>
+|
+
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The interval to get converted.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Helper_.js.html">Helper_.js</a>, <a href="Helper_.js.html#line125">line 125</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <ul>
+<li>A Interval converted to its string representation, if the input value is of type Interval. The input, if the input is of type <strong>string</strong>. Else, <strong>null</strong>.</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+|
+
+<span class="param-type">null</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~decodeFleetRank_"><span class="type-signature">(inner) </span>decodeFleetRank_<span class="signature">(fleetRank)</span><span class="type-signature"> &rarr; {AllianceMembership|null}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Converts an integer as returned from the PSS Fleet Data API to an AllianceMembership enum value.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>fleetRank</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The fleet rank value as returned by the PSS Fleet Data API.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Helper_.js.html">Helper_.js</a>, <a href="Helper_.js.html#line14">line 14</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <ul>
+<li>The AllianceMembership enum value matching the input. Returns <strong>null</strong>, if the provided <strong>fleetRank</strong> doesn't match an enum value.</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">AllianceMembership</span>
+|
+
+<span class="param-type">null</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~decodeTimestamp_"><span class="type-signature">(inner) </span>decodeTimestamp_<span class="signature">(secondsSincePssStart<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Date}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Converts an integer as returned from the PSS Fleet Data API to a <strong>Date</strong> object.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>secondsSincePssStart</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The number of seconds that passed since Jan 6th, 2016.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Helper_.js.html">Helper_.js</a>, <a href="Helper_.js.html#line32">line 32</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <ul>
+<li>A <strong>Date</strong> object representing a specific point in time since PSS started, if <strong>secondsSincePssStart</strong> is truthy. Else, <strong>null</strong>.</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Date</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~formatDateUTC_"><span class="type-signature">(inner) </span>formatDateUTC_<span class="signature">(datetime)</span><span class="type-signature"> &rarr; {string|null}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Takes a <strong>Date</strong> object and converts it to a string representing the UTC portion of it.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>datetime</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Date</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The <strong>Date</strong> object to convert.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Helper_.js.html">Helper_.js</a>, <a href="Helper_.js.html#line181">line 181</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <ul>
+<li>A string representing the UTC portion of the provided <strong>Date</strong>, if it's defined. Else, <strong>null</strong>. The resulting string resembles an ISO-8601 string without the 'T' separator nor timezone information.</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+|
+
+<span class="param-type">null</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~getFromApiUrl_"><span class="type-signature">(inner) </span>getFromApiUrl_<span class="signature">(path, allianceId<span class="signature-attributes">opt</span>, collectionId<span class="signature-attributes">opt</span>, userId<span class="signature-attributes">opt</span>, fromDate<span class="signature-attributes">opt</span>, toDate<span class="signature-attributes">opt</span>, interval<span class="signature-attributes">opt</span>, desc<span class="signature-attributes">opt</span>, skip<span class="signature-attributes">opt</span>, take<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {HTTPResponse}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Makes a GET call to the PSS Fleet Data API endpoint specified by the given <strong>path</strong>, passing the specified parameters.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The url path to the endpoint to get data from. Does not include protocol or domain of the PSS Fleet Data API server.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>allianceId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The <strong>allianceId</strong> parameter for the API endpoint. Replaces an <strong>{allianceId}</strong> placeholder in the <strong>path</strong> parameter.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>collectionId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The <strong>collectionId</strong> parameter for the API endpoint. Replaces a <strong>{collectionId}</strong> placeholder in the <strong>path</strong> parameter.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>userId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The <strong>userId</strong> parameter for the API endpoint. Replaces a <strong>{userId}</strong> placeholder in the <strong>path</strong> parameter.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fromDate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Date</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The earliest date for which data shall be returned.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>toDate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Date</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The latest date for which data shall be returned.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>interval</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Interval</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Return the data from the specified time frame in hourly, daily (last Collection of a day) or monthly (last Collection of a month) interval.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>desc</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Return the results in descending order by timestamp.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>skip</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Skip this number of results from the result set.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>take</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Limit the number of results returned.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Helper_.js.html">Helper_.js</a>, <a href="Helper_.js.html#line153">line 153</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <ul>
+<li>An object representing the response of the PSS Fleet Data API server.</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">HTTPResponse</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~getFromUrl_"><span class="type-signature">(inner) </span>getFromUrl_<span class="signature">(url)</span><span class="type-signature"> &rarr; {HTTPResponse}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Makes a GET call to a server represented by the given <strong>URL</strong>.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>url</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The URL to get.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Helper_.js.html">Helper_.js</a>, <a href="Helper_.js.html#line169">line 169</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <ul>
+<li>An object representing the response of the requested server.</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">HTTPResponse</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~newDate_"><span class="type-signature">(inner) </span>newDate_<span class="signature">(year, month<span class="signature-attributes">opt</span>, day<span class="signature-attributes">opt</span>, hour<span class="signature-attributes">opt</span>, minute<span class="signature-attributes">opt</span>, second<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Date}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Creates a new <strong>Date</strong> object with the UTC timezone regardless of the client's configured timezone.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>year</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>The year of the <strong>Date</strong> to be created.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>month</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last"><p>The month of the <strong>Date</strong> to be created. Defaults to <strong>0</strong>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>day</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    1
+                
+                </td>
+            
+
+            <td class="description last"><p>The month of the <strong>Date</strong> to be created. Defaults to <strong>1</strong>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>hour</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last"><p>The hour of the <strong>Date</strong> to be created. Defaults to <strong>0</strong>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>minute</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last"><p>The minute of the <strong>Date</strong> to be created. Defaults to <strong>0</strong>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>second</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last"><p>The second of the <strong>Date</strong> to be created. Defaults to <strong>0</strong>.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Helper_.js.html">Helper_.js</a>, <a href="Helper_.js.html#line201">line 201</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <ul>
+<li>A <strong>Date</strong> with the provided values and in UTC timezone.</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Date</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~padInt_"><span class="type-signature">(inner) </span>padInt_<span class="signature">(i, padCount)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Pads an integer with leading 0s.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>i</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The <strong>integer</strong> to be padded.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>padCount</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The maximum number of leading 0s to pad the integer with.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Helper_.js.html">Helper_.js</a>, <a href="Helper_.js.html#line215">line 215</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <ul>
+<li>A string representing an integer padded with leading 0s.</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="Classes_API%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520objects%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_.html">Classes_API
+
+This module contains classes wrapping objects returned by the PSS Fleet Data API.</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_.html">Classes_Responses
+
+This module contains classes wrapping responses returned by the PSS Fleet Data API.</a></li><li><a href="Client%250A%250AThis%2520module%2520contains%2520a%2520stateless%2520Pixel%2520Starships%2520Fleet%2520Data%2520API%2520client.module_.html">Client
+
+This module contains a stateless Pixel Starships Fleet Data API client.</a></li><li><a href="Constants%250A%250AThis%2520module%2520contains%2520constants%2520used%2520in%2520other%2520modules.module_.html">Constants
+
+This module contains constants used in other modules.</a></li><li><a href="Enums%250A%250AThis%2520module%2520contains%2520_Enums_.module_.html">Enums
+
+This module contains "Enums".</a></li><li><a href="Helper_%250A%250AThis%2520module%2520contains%2520utility%2520functions.module_.html">Helper_
+
+This module contains utility functions.</a></li><li><a href="Test_%250A%250AContains%2520helper%2520functions%2520for%2520testing.module_.html">Test_
+
+Contains helper functions for testing.</a></li><li><a href="Test_integration_%250A%250AContains%2520integration%2520tests.module_.html">Test_integration_
+
+Contains integration tests.</a></li><li><a href="Test_unit_%250A%250AContains%2520unit%2520tests.module_.html">Test_unit_
+
+Contains unit tests.</a></li></ul><h3>Classes</h3><ul><li><a href="Classes_API%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520objects%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-Collection.html">Collection</a></li><li><a href="Classes_API%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520objects%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-CollectionMetadata.html">CollectionMetadata</a></li><li><a href="Classes_API%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520objects%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-PssAlliance.html">PssAlliance</a></li><li><a href="Classes_API%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520objects%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-PssAllianceHistory.html">PssAllianceHistory</a></li><li><a href="Classes_API%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520objects%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-PssUser.html">PssUser</a></li><li><a href="Classes_API%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520objects%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-PssUserHistory.html">PssUserHistory</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-AllianceHistoryResponse.html">AllianceHistoryResponse</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-ApiResponse_.html">ApiResponse_</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-CollectionAllianceResponse.html">CollectionAllianceResponse</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-CollectionAlliancesResponse.html">CollectionAlliancesResponse</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-CollectionMetadatasResponse.html">CollectionMetadatasResponse</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-CollectionResponse.html">CollectionResponse</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-CollectionUserResponse.html">CollectionUserResponse</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-CollectionUsersResponse.html">CollectionUsersResponse</a></li><li><a href="Classes_Responses%250A%250AThis%2520module%2520contains%2520classes%2520wrapping%2520responses%2520returned%2520by%2520the%2520PSS%2520Fleet%2520Data%2520API.module_-UserHistoryResponse.html">UserHistoryResponse</a></li><li><a href="Client%250A%250AThis%2520module%2520contains%2520a%2520stateless%2520Pixel%2520Starships%2520Fleet%2520Data%2520API%2520client.module_-Client.html">Client</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Thu Nov 28 2024 23:32:27 GMT+0100 (Central European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
