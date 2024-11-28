@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: CollectionMetadata</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Class: CollectionMetadata</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2><span class="attribs"><span class="type-signature"></span></span>
+            <span class="ancestors"><a href="module-Classes_API.html">Classes_API</a>~</span>CollectionMetadata<span class="signature">(objMetadata)</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description"><p>Represents the metadata of a PSS Fleet Data <code>Collection</code>.</p></div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+    <h2>Constructor</h2>
+    
+
+    
+    <h4 class="name" id="CollectionMetadata"><span class="type-signature"></span>new CollectionMetadata<span class="signature">(objMetadata)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>constructor - Creates an instance of <a href="module-Classes_API-CollectionMetadata.html">CollectionMetadata</a> based on the given data.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>objMetadata</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>An object retrieved by parsing JSON data from the PSS Fleet Data API.</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>timestamp</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The timestamp of the <strong>Date</strong> at which the data was collected. In ISO-8601 format without the 'T' separator or timezone information. UTC timezone is assumed.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>duration</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">float</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The time it took to collect the data.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fleet_count</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The number of <a href="module-Classes_API-PssAlliance.html">PssAlliance</a>s (fleets) included in this <a href="module-Classes_API-Collection.html">Collection</a>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>user_count</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The number of <a href="module-Classes_API-PssUser.html">PssUser</a>s (players) included in this <a href="module-Classes_API-Collection.html">Collection</a>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>tourney_running</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Determines, if a monthly Tournament was running when collecting this data.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>data_version</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The schema version used when collecting the data.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>schema_version</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The schema version that the PSS Fleet Data API server used when sending the data.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>max_tournament_battle_attempts</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The maximum number of daily battle attempts in the monthly Tournament.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>collection_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The ID of the <a href="module-Classes_API-Collection.html">Collection</a>.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Classes_API.gs.html">Classes_API.gs</a>, <a href="Classes_API.gs.html#line10">line 10</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="collectedAt"><span class="type-signature"></span>collectedAt<span class="type-signature"> :Date</span></h4>
+
+
+
+
+<div class="description">
+    <p>collectedAt - The <strong>Date</strong> at which the data was collected. UTC timezone.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Date</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Classes_API.gs.html">Classes_API.gs</a>, <a href="Classes_API.gs.html#line38">line 38</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="collectionId"><span class="type-signature"></span>collectionId<span class="type-signature"> :integer</span></h4>
+
+
+
+
+<div class="description">
+    <p>collectionId - The ID of this <a href="module-Classes_API-Collection.html">Collection</a>.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">integer</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Classes_API.gs.html">Classes_API.gs</a>, <a href="Classes_API.gs.html#line94">line 94</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="dataVersion"><span class="type-signature"></span>dataVersion<span class="type-signature"> :integer</span></h4>
+
+
+
+
+<div class="description">
+    <p>dataVersion - The schema version used when collecting the data.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">integer</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Classes_API.gs.html">Classes_API.gs</a>, <a href="Classes_API.gs.html#line73">line 73</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="duration"><span class="type-signature"></span>duration<span class="type-signature"> :float</span></h4>
+
+
+
+
+<div class="description">
+    <p>duration - The time it took to collect the data.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">float</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Classes_API.gs.html">Classes_API.gs</a>, <a href="Classes_API.gs.html#line45">line 45</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="fleetCount"><span class="type-signature"></span>fleetCount<span class="type-signature"> :integer</span></h4>
+
+
+
+
+<div class="description">
+    <p>fleetCount - The number of <a href="module-Classes_API-PssAlliance.html">PssAlliance</a>s (fleets) included in this <a href="module-Classes_API-Collection.html">Collection</a>.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">integer</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Classes_API.gs.html">Classes_API.gs</a>, <a href="Classes_API.gs.html#line52">line 52</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="maxTournamentBattleAttempts"><span class="type-signature"></span>maxTournamentBattleAttempts<span class="type-signature"> :integer</span></h4>
+
+
+
+
+<div class="description">
+    <p>maxTournamentBattleAttempts - The maximum number of daily battle attempts in the monthly Tournament.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">integer</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Classes_API.gs.html">Classes_API.gs</a>, <a href="Classes_API.gs.html#line87">line 87</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="schemaVersion"><span class="type-signature"></span>schemaVersion<span class="type-signature"> :integer</span></h4>
+
+
+
+
+<div class="description">
+    <p>schemaVersion - The schema version that the PSS Fleet Data API server used when sending the data.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">integer</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Classes_API.gs.html">Classes_API.gs</a>, <a href="Classes_API.gs.html#line80">line 80</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="timestamp"><span class="type-signature"></span>timestamp<span class="type-signature"> :string</span></h4>
+
+
+
+
+<div class="description">
+    <p>timestamp - The timestamp of the <strong>Date</strong> at which the data was collected. In ISO-8601 format without the 'T' separator or timezone information. UTC timezone is assumed.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Classes_API.gs.html">Classes_API.gs</a>, <a href="Classes_API.gs.html#line31">line 31</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="tournamentRunning"><span class="type-signature"></span>tournamentRunning<span class="type-signature"> :boolean</span></h4>
+
+
+
+
+<div class="description">
+    <p>tournamentRunning - Determines, if a monthly Tournament was running when collecting this data.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">boolean</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Classes_API.gs.html">Classes_API.gs</a>, <a href="Classes_API.gs.html#line66">line 66</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="userCount"><span class="type-signature"></span>userCount<span class="type-signature"> :integer</span></h4>
+
+
+
+
+<div class="description">
+    <p>userCount - The number of <a href="module-Classes_API-PssUser.html">PssUser</a>s (players) included in this <a href="module-Classes_API-Collection.html">Collection</a>.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">integer</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Classes_API.gs.html">Classes_API.gs</a>, <a href="Classes_API.gs.html#line59">line 59</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Classes_API.html">Classes_API</a></li><li><a href="module-Classes_Responses.html">Classes_Responses</a></li><li><a href="module-Client.html">Client</a></li><li><a href="module-Constants.html">Constants</a></li><li><a href="module-Enums.html">Enums</a></li><li><a href="module-Helper_.html">Helper_</a></li><li><a href="module-Test_.html">Test_</a></li><li><a href="module-Test_integration_.html">Test_integration_</a></li><li><a href="module-Test_unit_.html">Test_unit_</a></li></ul><h3>Classes</h3><ul><li><a href="module-Classes_API-Collection.html">Collection</a></li><li><a href="module-Classes_API-CollectionMetadata.html">CollectionMetadata</a></li><li><a href="module-Classes_API-PssAlliance.html">PssAlliance</a></li><li><a href="module-Classes_API-PssAllianceHistory.html">PssAllianceHistory</a></li><li><a href="module-Classes_API-PssUser.html">PssUser</a></li><li><a href="module-Classes_API-PssUserHistory.html">PssUserHistory</a></li><li><a href="module-Classes_Responses-AllianceHistoryResponse.html">AllianceHistoryResponse</a></li><li><a href="module-Classes_Responses-ApiResponse_.html">ApiResponse_</a></li><li><a href="module-Classes_Responses-CollectionAllianceResponse.html">CollectionAllianceResponse</a></li><li><a href="module-Classes_Responses-CollectionAlliancesResponse.html">CollectionAlliancesResponse</a></li><li><a href="module-Classes_Responses-CollectionMetadatasResponse.html">CollectionMetadatasResponse</a></li><li><a href="module-Classes_Responses-CollectionResponse.html">CollectionResponse</a></li><li><a href="module-Classes_Responses-CollectionUserResponse.html">CollectionUserResponse</a></li><li><a href="module-Classes_Responses-CollectionUsersResponse.html">CollectionUsersResponse</a></li><li><a href="module-Classes_Responses-UserHistoryResponse.html">UserHistoryResponse</a></li><li><a href="module-Client-Client.html">Client</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Thu Nov 28 2024 19:04:29 GMT+0100 (Mitteleuropäische Normalzeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
