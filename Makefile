@@ -14,3 +14,8 @@ push:
 .PHONY: pull
 pull:
 	clasp pull
+
+# Publish new version
+.PHONY: Publish
+publish:
+	clasp version "Read the docs on: https://pss-tools-development.github.io/pss-fleet-data-client-appsscript/"
