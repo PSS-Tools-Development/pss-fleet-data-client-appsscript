@@ -1,7 +1,7 @@
 /**
- * @module Test_unit_
- * 
  * Contains unit tests.
+ * 
+ * @module Test_unit_
  */
 
 /**

@@ -1,7 +1,7 @@
 /**
- * @module Helper_
- * 
  * This module contains utility functions.
+ * 
+ * @module Helper_
  */
 
 /**

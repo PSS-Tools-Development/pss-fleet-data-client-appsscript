@@ -1,7 +1,7 @@
 /**
- * @module Enums
- * 
  * This module contains "Enums".
+ * 
+ * @module Enums
  */
 
 const AllianceMembership = Object.freeze({

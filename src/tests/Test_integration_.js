@@ -1,7 +1,7 @@
 /**
- * @module Test_integration_
- * 
  * Contains integration tests.
+ * 
+ * @module Test_integration_
  */
 
 /**

@@ -1,7 +1,7 @@
 /**
- * @module Classes_Responses
- * 
  * This module contains classes wrapping responses returned by the PSS Fleet Data API.
+ * 
+ * @module Classes_Responses
  */
 
 /**

@@ -1,7 +1,7 @@
 /**
- * @module Client
- * 
  * This module contains a stateless Pixel Starships Fleet Data API client.
+ * 
+ * @module Client
  */
  
  /**

@@ -1,7 +1,7 @@
 /**
- * @module Constants
- * 
  * This module contains constants used in other modules.
+ * 
+ * @module Constants
  */
 
 /** @const {string} - The default base URL of the PSS Fleet Data API. */
