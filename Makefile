@@ -13,4 +13,4 @@ push:
 # Pull current state from Google Scripts
 .PHONY: pull
 pull:
-	clasp pull -P src
+	clasp pull
