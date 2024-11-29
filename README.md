@@ -4,7 +4,7 @@
 
 > A stateless Google Apps Script library to access the [PSS Fleet Data API](https://github.com/Zukunftsmusik/pss-fleet-data-api). Currently supported API version is **1.5.x**.
 
-> Current version: **8**
+### Current version: 10
 
 # ✨ Features
 
@@ -15,12 +15,12 @@
 To retrieve the last month's tournament results (a specific Collection):
 ```javascript
 // Retrieve the monthly results in reversed order and take only 1
-let apiResponse = PssFleetData.Client.getCollections(null, null, "month", true, 0, 1);
+let apiResponse = PssFleetData.getCollections(null, null, "month", true, 0, 1);
 
 // The resulting response object will have the http response code and if the request was successful, also the parsed response body
 if (apiResponse.metadatas != null) { // Check for null, the result set may just be empty
   // Now retrieve the Collection's full data with the collectionId
-  let collection = PssFleetData.Client.getCollection(apiResponse.metadatas[0].collectionId).collection;
+  let collection = PssFleetData.getCollection(apiResponse.metadatas[0].collectionId).collection;
   
   if (collection) {
     console.log("Last month's collection was collected at: " + collection.timestamp);
@@ -33,10 +33,11 @@ if (apiResponse.metadatas != null) { // Check for null, the result set may just 
 The library converts localized `Date` objects to UTC or assumes UTC, if no timezone information is given. Any `Date` objects returned are in UTC.
 
 # ⚙️ Installation
-To install the library in your project, search for this script ID:
+To install the library in your project, follow the steps outlined in the [official documentation](https://developers.google.com/apps-script/guides/libraries#add_a_library_to_your_script_project). When prompted for the script ID enter:
 ```sh
 1THzQ0jC6YrA2SyWMrHf1QauQdKYI4eMK4H-LhP6s1a9i5UvRa7p3TiaQ
 ```
+Then select the latest numbered version.
 
 # 🖊️ Contribute
 If you ran across a bug or have a feature request, please check if there's [already an issue](https://github.com/PSS-Tools-Development/pss-fleet-data-client-appsscript/issues) for that and if not, [open a new one](https://github.com/PSS-Tools-Development/pss-fleet-data-client-appsscript/issues/new).

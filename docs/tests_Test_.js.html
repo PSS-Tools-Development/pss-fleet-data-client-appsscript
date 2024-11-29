@@ -36,152 +36,154 @@
  * Runs all tests and logs the results to the console.
  */
 function runAllTests() {
-  runAllUnitTests();
-  runAllIntegrationTests();
+  UnitTests_.runAllUnitTests();
+  IntegrationTests_.runAllIntegrationTests();
 }
 
-/**
- * Compares the **left** and **right** values for equality (**==**) and throws an exception, if those don't match.
- * 
- * @param {any} left - A value to compare.
- * @param {any} right - A value to compare.
- * @param {string} [message] - An optional message to attach to the exception thrown, if the assertion fails.
- * 
- * @throws {Error} - The provided values aren't equal (**==**).
- */
-function assert_equal_(left, right, message = undefined) {
-  if (left != right) {
-    throw_assertion_error_(left + " != " + right, message);
-  }
-}
-
-/**
- * Compares the **left** and **right** values for strict equality (**===**) and throws an exception, if those don't match.
- * 
- * @param {any} left - A value to compare.
- * @param {any} right - A value to compare.
- * @param {string} [message] - An optional message to attach to the exception thrown, if the assertion fails.
- * 
- * @throws {Error} - The provided values aren't strictly equal (**===**).
- */
-function assert_strictly_equal_(left, right, message = undefined) {
-  if (left !== right) {
-    throw_assertion_error_(left + " !== " + right, message);
-  }
-}
-
-/**
- * Compares the **left** and **right** objects for shallow equality (**==** only on the first level) and throws an exception, if those don't match. Doesn't perform a deep check on nested objects.
- * 
- * @param {object} left - An object to compare.
- * @param {object} right - An object to compare.
- * @param {string} [message] - An optional message to attach to the exception thrown, if the assertion fails.
- * 
- * @throws {Error} - If one of the provided objects is falsy and the other isn't. If the provided objects have a different number of keys. If the provided objects have different keys. If the keys of the provided objects don't return equal (**==**) values.
- */
-function assert_objects_equal_(left, right, message = undefined) {
-  if (!left &amp;&amp; !right) {
-    return;
+class Tests_ {
+  /**
+   * Compares the **left** and **right** values for equality (**==**) and throws an exception, if those don't match.
+   * 
+   * @param {any} left - A value to compare.
+   * @param {any} right - A value to compare.
+   * @param {string} [message] - An optional message to attach to the exception thrown, if the assertion fails.
+   * 
+   * @throws {Error} - The provided values aren't equal (**==**).
+   */
+  static assert_equal_(left, right, message = undefined) {
+    if (left != right) {
+      Tests_.throw_assertion_error_(left + " != " + right, message);
+    }
   }
 
-  if (!left &amp;&amp; right || left &amp;&amp; !right) {
-    throw_assertion_error_(left + " != " + right, message);
+  /**
+   * Compares the **left** and **right** values for strict equality (**===**) and throws an exception, if those don't match.
+   * 
+   * @param {any} left - A value to compare.
+   * @param {any} right - A value to compare.
+   * @param {string} [message] - An optional message to attach to the exception thrown, if the assertion fails.
+   * 
+   * @throws {Error} - The provided values aren't strictly equal (**===**).
+   */
+  static assert_strictly_equal_(left, right, message = undefined) {
+    if (left !== right) {
+      Tests_.throw_assertion_error_(left + " !== " + right, message);
+    }
   }
 
-  let leftKeys = Object.keys(left);
-  let rightKeys = Object.keys(right);
-  if (leftKeys.length != rightKeys.length) {
-    throw_assertion_error_(left + " != " + right, message);
-  }
+  /**
+   * Compares the **left** and **right** objects for shallow equality (**==** only on the first level) and throws an exception, if those don't match. Doesn't perform a deep check on nested objects.
+   * 
+   * @param {object} left - An object to compare.
+   * @param {object} right - An object to compare.
+   * @param {string} [message] - An optional message to attach to the exception thrown, if the assertion fails.
+   * 
+   * @throws {Error} - If one of the provided objects is falsy and the other isn't. If the provided objects have a different number of keys. If the provided objects have different keys. If the keys of the provided objects don't return equal (**==**) values.
+   */
+  static assert_objects_equal_(left, right, message = undefined) {
+    if (!left &amp;&amp; !right) {
+      return;
+    }
 
-  leftKeys.forEach(key => {
-    if (!rightKeys.includes(key)) {
+    if (!left &amp;&amp; right || left &amp;&amp; !right) {
+      Tests_.throw_assertion_error_(left + " != " + right, message);
+    }
+
+    let leftKeys = Object.keys(left);
+    let rightKeys = Object.keys(right);
+    if (leftKeys.length != rightKeys.length) {
       throw_assertion_error_(left + " != " + right, message);
     }
-    if (left[key] != right[key]) {
-      throw_assertion_error_(left + " != " + right, message);
-    }
-  });
-}
 
-/**
- * Compares the **left** and **right** objects for shallow strict equality (**===** only on the first level) and throws an exception, if those don't match. Doesn't perform a deep check on nested objects.
- * 
- * @param {object} left - An object to compare.
- * @param {object} right - An object to compare.
- * @param {string} [message] - An optional message to attach to the exception thrown, if the assertion fails.
- * 
- * @throws {Error} - If one of the provided objects is falsy and the other isn't. If the provided objects have a different number of keys. If the provided objects have different keys. If the keys of the provided objects don't return strictly equal (**===**) values.
- */
-function assert_objects_strictly_equal_(left, right, message = undefined) {
-  if (!left &amp;&amp; !right) {
-    return;
+    leftKeys.forEach(key => {
+      if (!rightKeys.includes(key)) {
+        Tests_.throw_assertion_error_(left + " != " + right, message);
+      }
+      if (left[key] != right[key]) {
+        Tests_.throw_assertion_error_(left + " != " + right, message);
+      }
+    });
   }
 
-  if (!left &amp;&amp; right || left &amp;&amp; !right) {
-    throw_assertion_error_(left + " != " + right, message);
+  /**
+   * Compares the **left** and **right** objects for shallow strict equality (**===** only on the first level) and throws an exception, if those don't match. Doesn't perform a deep check on nested objects.
+   * 
+   * @param {object} left - An object to compare.
+   * @param {object} right - An object to compare.
+   * @param {string} [message] - An optional message to attach to the exception thrown, if the assertion fails.
+   * 
+   * @throws {Error} - If one of the provided objects is falsy and the other isn't. If the provided objects have a different number of keys. If the provided objects have different keys. If the keys of the provided objects don't return strictly equal (**===**) values.
+   */
+  static assert_objects_strictly_equal_(left, right, message = undefined) {
+    if (!left &amp;&amp; !right) {
+      return;
+    }
+
+    if (!left &amp;&amp; right || left &amp;&amp; !right) {
+      Tests_.throw_assertion_error_(left + " != " + right, message);
+    }
+
+    let leftKeys = Object.keys(left);
+    let rightKeys = Object.keys(right);
+    if (leftKeys.length != rightKeys.length) {
+      Tests_.throw_assertion_error_(left + " != " + right, message);
+    }
+
+    leftKeys.forEach(key => {
+      if (!rightKeys.includes(key)) {
+        Tests_.throw_assertion_error_(left + " != " + right, message);
+      }
+      if (left[key] !== right[key]) {
+        Tests_.throw_assertion_error_(left + " != " + right, message);
+      }
+    });
   }
 
-  let leftKeys = Object.keys(left);
-  let rightKeys = Object.keys(right);
-  if (leftKeys.length != rightKeys.length) {
-    throw_assertion_error_(left + " != " + right, message);
+  /**
+   * Checks, if the provided value is truthy and throws an exception if not.
+   * 
+   * @param {any} value - The value to check.
+   * @param {string} [message] - An optional message to attach to the exception thrown, if the assertion fails.
+   * 
+   * @throws {Error} - If the provided value is not truthy.
+   */
+  static assert_(value, message = undefined) {
+    if (!value) {
+      Tests_.throw_assertion_error_(value + " is not truthy", message);
+    }
   }
 
-  leftKeys.forEach(key => {
-    if (!rightKeys.includes(key)) {
-      throw_assertion_error_(left + " != " + right, message);
+  /**
+   * Throws an exception with the given default message or a user-provided custom message.
+   * 
+   * @param {string} message - The message to attach to the exception thrown.
+   * @param {string} [userMessage] - An optional message to attach to the exception thrown instead of the default **message**.
+   * 
+   * @throws {Error} - Always.
+   */
+  static throw_assertion_error_(message, userMessage = undefined) {
+    if (userMessage) {
+      throw Error("Assertion failed: " + userMessage);
     }
-    if (left[key] !== right[key]) {
-      throw_assertion_error_(left + " != " + right, message);
-    }
-  });
-}
-
-/**
- * Checks, if the provided value is truthy and throws an exception if not.
- * 
- * @param {any} value - The value to check.
- * @param {string} [message] - An optional message to attach to the exception thrown, if the assertion fails.
- * 
- * @throws {Error} - If the provided value is not truthy.
- */
-function assert_(value, message = undefined) {
-  if (!value) {
-    throw_assertion_error_(value + " is not truthy", message);
+    throw Error("Assertion failed: " + message);
   }
-}
 
-/**
- * Throws an exception with the given default message or a user-provided custom message.
- * 
- * @param {string} message - The message to attach to the exception thrown.
- * @param {string} [userMessage] - An optional message to attach to the exception thrown instead of the default **message**.
- * 
- * @throws {Error} - Always.
- */
-function throw_assertion_error_(message, userMessage = undefined) {
-  if (userMessage) {
-    throw Error("Assertion failed: " + userMessage);
+  /**
+   * Runs an array of parameterless test functions and logs the results to the console.
+   * 
+   * @param {Array} tests - An array of paramterless functions, each representing a test to be performed.
+   */
+  static runTests_(tests) {
+    tests.forEach(testFunction => {
+      console.log("Running test '" + testFunction.name + "'");
+      try {
+        testFunction();
+      }
+      catch (error) {
+        console.error("FAIL: " + error.message);
+      }
+    });
   }
-  throw Error("Assertion failed: " + message);
-}
-
-/**
- * Runs an array of parameterless test functions and logs the results to the console.
- * 
- * @param {Array} tests - An array of paramterless functions, each representing a test to be performed.
- */
-function runTests_(tests) {
-  tests.forEach(testFunction => {
-    console.log("Running test '" + testFunction.name + "': ");
-    try {
-      testFunction();
-    }
-    catch (error) {
-      console.error("FAIL: " + error.message);
-    }
-  });
 }
 </code></pre>
         </article>
@@ -193,13 +195,13 @@ function runTests_(tests) {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Classes_API.html">Classes_API</a></li><li><a href="module-Classes_Responses.html">Classes_Responses</a></li><li><a href="module-Client.html">Client</a></li><li><a href="module-Constants.html">Constants</a></li><li><a href="module-Enums.html">Enums</a></li><li><a href="module-Helper_.html">Helper_</a></li><li><a href="module-Test_.html">Test_</a></li><li><a href="module-Test_integration_.html">Test_integration_</a></li><li><a href="module-Test_unit_.html">Test_unit_</a></li></ul><h3>Classes</h3><ul><li><a href="module-Classes_API-Collection.html">Collection</a></li><li><a href="module-Classes_API-CollectionMetadata.html">CollectionMetadata</a></li><li><a href="module-Classes_API-PssAlliance.html">PssAlliance</a></li><li><a href="module-Classes_API-PssAllianceHistory.html">PssAllianceHistory</a></li><li><a href="module-Classes_API-PssUser.html">PssUser</a></li><li><a href="module-Classes_API-PssUserHistory.html">PssUserHistory</a></li><li><a href="module-Classes_Responses-AllianceHistoryResponse.html">AllianceHistoryResponse</a></li><li><a href="module-Classes_Responses-ApiResponse_.html">ApiResponse_</a></li><li><a href="module-Classes_Responses-CollectionAllianceResponse.html">CollectionAllianceResponse</a></li><li><a href="module-Classes_Responses-CollectionAlliancesResponse.html">CollectionAlliancesResponse</a></li><li><a href="module-Classes_Responses-CollectionMetadatasResponse.html">CollectionMetadatasResponse</a></li><li><a href="module-Classes_Responses-CollectionResponse.html">CollectionResponse</a></li><li><a href="module-Classes_Responses-CollectionUserResponse.html">CollectionUserResponse</a></li><li><a href="module-Classes_Responses-CollectionUsersResponse.html">CollectionUsersResponse</a></li><li><a href="module-Classes_Responses-UserHistoryResponse.html">UserHistoryResponse</a></li><li><a href="module-Client-Client.html">Client</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Classes_API.html">Classes_API</a></li><li><a href="module-Classes_Responses.html">Classes_Responses</a></li><li><a href="module-Client.html">Client</a></li><li><a href="module-Constants.html">Constants</a></li><li><a href="module-Enums.html">Enums</a></li><li><a href="module-Helper_.html">Helper_</a></li><li><a href="module-Test_.html">Test_</a></li><li><a href="module-Test_integration_.html">Test_integration_</a></li><li><a href="module-Test_unit_.html">Test_unit_</a></li></ul><h3>Classes</h3><ul><li><a href="module-Classes_API-Collection.html">Collection</a></li><li><a href="module-Classes_API-CollectionMetadata.html">CollectionMetadata</a></li><li><a href="module-Classes_API-PssAlliance.html">PssAlliance</a></li><li><a href="module-Classes_API-PssAllianceHistory.html">PssAllianceHistory</a></li><li><a href="module-Classes_API-PssUser.html">PssUser</a></li><li><a href="module-Classes_API-PssUserHistory.html">PssUserHistory</a></li><li><a href="module-Classes_Responses-AllianceHistoryResponse.html">AllianceHistoryResponse</a></li><li><a href="module-Classes_Responses-ApiResponse_.html">ApiResponse_</a></li><li><a href="module-Classes_Responses-CollectionAllianceResponse.html">CollectionAllianceResponse</a></li><li><a href="module-Classes_Responses-CollectionAlliancesResponse.html">CollectionAlliancesResponse</a></li><li><a href="module-Classes_Responses-CollectionMetadatasResponse.html">CollectionMetadatasResponse</a></li><li><a href="module-Classes_Responses-CollectionResponse.html">CollectionResponse</a></li><li><a href="module-Classes_Responses-CollectionUserResponse.html">CollectionUserResponse</a></li><li><a href="module-Classes_Responses-CollectionUsersResponse.html">CollectionUsersResponse</a></li><li><a href="module-Classes_Responses-UserHistoryResponse.html">UserHistoryResponse</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Fri Nov 29 2024 10:22:09 GMT+0100 (Central European Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Fri Nov 29 2024 15:35:49 GMT+0100 (Central European Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>
