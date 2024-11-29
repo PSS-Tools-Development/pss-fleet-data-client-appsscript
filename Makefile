@@ -9,3 +9,8 @@ docs:
 .PHONY: push
 push:
 	clasp push -P src
+
+# Pull current state from Google Scripts
+.PHONY: pull
+pull:
+	clasp pull
